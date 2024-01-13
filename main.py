@@ -1,30 +1,29 @@
-""" namesReestr=["Vasya", "Vadim"]
+names_reestr=["Vasya", "Vadim"]
 
-def greetController(names):
+def greet_controller(names):
     for name in names:
-        print(getHello(name))
+        print(get_hello(name))
     print('\n')
 
-def getHello(name):
+def get_hello(name):
     return "Hello " + name
 
-greetController(namesReestr)
-greetController(["Vova","Dima","Sasha"])
-secondArray=["Slava"]
-secondArray.append("Fedya")
-secondArray.append("Andrey")
+greet_controller(names_reestr)
+greet_controller(["Vova","Dima","Sasha"])
+second_array=["Slava"]
+second_array.append("Fedya")
+second_array.append("Andrey")
 
-def getAnyNames(anyNames):
-    return anyNames
-greetController(getAnyNames(["Kolya", "Victor"]))
-greetController(secondArray)
+def get_any_names(any_names):
+    return any_names
+greet_controller(get_any_names(["Kolya", "Victor"]))
+greet_controller(second_array)
 
 def func(f):
     return f("Azaza")
 
-
-print(func(getHello))
-print(func(getAnyNames)) """
+print(func(get_hello))
+print(func(get_any_names)) 
 
 import random 
 
@@ -33,4 +32,4 @@ def sqrt(num):
     return result
 
 print(sqrt(sqrt(sqrt(5))))
-print(sqrt(random.uniform(1,100)))
+print(sqrt(random.random()))
