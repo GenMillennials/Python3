@@ -19,10 +19,20 @@ def permutation(alph,rep):
 for p in permutation("abc",3):
     print(p) """
 
-# The second code version with standard Python's library itertools
+
+""" # The second code version with the standard Python's library itertools
 
 from itertools import permutations  # Calling the product function from intertools
 
 P=list(permutations("abc")) # Combinations iterating process and returning the list
 for p in P:
-    print("".join(p)) # Merging the list elements content into one element
+    print("".join(p)) # Merging the list elements content into one element """
+
+
+# The third code version with the standard Python's library itertools
+
+def prod(alph,rep):
+    return ([i for i in alph] if rep==1 else [a+p for a in alph for p in prod(alph,rep-1)])
+
+for p in prod("abc",4):
+    print(p)
