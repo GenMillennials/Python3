@@ -3,9 +3,7 @@
 # Forbidden to getting rearranged of the letters.
 
 def pal(S):
-    if len(S)==0:
-        return ""
-    elif len(S)==1:
+    if S==S[::-1]:
         return S
     elif (S[0]==S[-1]):
         return S[0]+pal(S[1:-1])+S[-1]
@@ -16,5 +14,6 @@ def pal(S):
             return A
         else:
             return B
+        
 S=input()
 print(pal(S))
