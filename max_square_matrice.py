@@ -1,7 +1,7 @@
 # Search the lenght of the biggest square inside a matrice (two-dimensional list).
 # The square should be filled of nulls only.
 
-def square(M,y=0,x=0,l=-1,L=[]):  # Definiton a function consists of 4 parameters: Matrice, two coordinates and length of the square side
+def square(M,y=0,x=0,l=-1,L=[]):
     if l==-1:
         l=len(M)
         L=[]
