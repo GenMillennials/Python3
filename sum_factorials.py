@@ -4,11 +4,11 @@ def fact(num):
         p=p*num
     return p
 
-def sigmafact(num):
+def sigma(num,func):
     s=0
     for i in range(1,num+1):
-        s=s+fact(i) # For each number i in iterations
+        s=s+func(i)
     return s
 
 num=int(input())
-print(sigmafact(num))
+print(sigma(num,fact))
