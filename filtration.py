@@ -13,14 +13,9 @@ print(L)
 M=[el for el in L if el>0]
 print(M)"""
 
-# Soolving with the filter(f,L) embedded function
-def check_positive(num): # Definition a function which checking up a number on positive or negative
-    if num>0:
-        return True # The function returns True or False (It's nessesary for embedded filter function)
-    else:
-        return False
-    
+# Solving with the filter(f,L) embedded function and lambda anonymous function
+
 L=[-2,3,0,-5,7]
 print(L)
-M=list(filter(check_positive,L)) # Using the filter function that delete wasted numbers in L[] list
+M=list(filter(lambda num: num>0, L)) # Definition lambda function as argument for True
 print(M)
