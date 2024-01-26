@@ -1,4 +1,4 @@
-def fact(num):
+""" def fact(num):
     p=1
     for i in range(1,num+1):
         p=p*num
@@ -11,4 +11,12 @@ def sigma(num,func):
     return s
 
 num=int(input())
-print(sigma(num,fact))
+print(sigma(num,fact)) """
+
+
+from functools import reduce
+
+n = int(input())
+L = list(range(1, n+1))
+func = reduce(lambda a, b: a * b, L)
+print(func)
