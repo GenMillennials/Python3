@@ -14,6 +14,17 @@ num=int(input())
 print(sigma(num,fact)) """
 
 
+""" from functools import reduce
+
+def factorial(num):
+    L = list(range(1, num + 1))
+    func = reduce(lambda a, b: a * b, L)
+    return func
+
+num = int(input())
+print(factorial(num)) """
+
+
 from functools import reduce
 
 def factorial(num):
@@ -22,4 +33,7 @@ def factorial(num):
     return func
 
 num = int(input())
-print(factorial(num))
+L = list(range(1, num + 1))
+print(L)
+M = list(map(factorial, L))  # Created a new list with the map() built-in function
+print(M)
