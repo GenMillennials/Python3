@@ -16,7 +16,10 @@ print(sigma(num,fact)) """
 
 from functools import reduce
 
-n = int(input())
-L = list(range(1, n+1))
-func = reduce(lambda a, b: a * b, L)
-print(func)
+def factorial(num):
+    L = list(range(1, num + 1))
+    func = reduce(lambda a, b: a * b, L)
+    return func
+
+num = int(input())
+print(factorial(num))
