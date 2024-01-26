@@ -22,18 +22,23 @@ def factorial(num):
     return func
 
 num = int(input())
-print(factorial(num)) """
+L = list(range(1, num + 1))
+print(L)
+M = list(map(factorial, L))  # Created a new list with the map() built-in function
+print(M)
+print(sum(M)) """
 
 
 from functools import reduce
 
 def factorial(num):
-    L = list(range(1, num + 1))
-    func = reduce(lambda a, b: a * b, L)
-    return func
+    return reduce(lambda a, b: a * b, range(1, num + 1))
 
 num = int(input())
-L = list(range(1, num + 1))
-print(L)
-M = list(map(factorial, L))  # Created a new list with the map() built-in function
-print(M)
+print(sum(list(map(factorial, range(1, num + 1)))))
+
+
+""" from functools import reduce
+
+num = int(input())
+print(sum(list(map(lambda num: reduce(lambda a, b: a * b, range(1, num + 1)), range(1, num + 1))))) """
