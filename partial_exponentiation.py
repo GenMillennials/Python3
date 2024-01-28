@@ -12,7 +12,9 @@ print(userpow(a))
 print(genpow(n) (a)) """
 
 
-def fastpow(a, n):
+
+
+""" def fastpow(a, n):
     if n == 0:
         return 1
     elif n % 2 == 0:
@@ -31,5 +33,30 @@ print(cube(a))
 n = int(input())
 userpow = genpow(n)
 print(userpow(a))
-print(genpow(n) (a))
+print(genpow(n) (a)) """
+
+
+
+
+def fastpow(a, n):
+    if n == 0:
+        return 1
+    elif n % 2 == 0:
+        return fastpow(a * a, n // 2)
+    else:
+        return fastpow(a, n-1) * a
     
+
+def get_partapply(n, f):
+    return lambda a: f(a, n)
+
+
+square = get_partapply(2, fastpow)
+cube = get_partapply(3, fastpow)
+a = float(input())
+print(square(a))
+print(cube(a))
+n = int(input())
+userpow = get_partapply(n, fastpow)
+print(userpow(a))
+print(get_partapply(n, fastpow) (a))
