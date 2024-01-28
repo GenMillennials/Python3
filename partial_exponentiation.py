@@ -38,7 +38,7 @@ print(genpow(n) (a)) """
 
 
 
-def fastpow(a, n):
+""" def fastpow(a, n):
     if n == 0:
         return 1
     elif n % 2 == 0:
@@ -59,4 +59,24 @@ print(cube(a))
 n = int(input())
 userpow = get_partapply(n, fastpow)
 print(userpow(a))
-print(get_partapply(n, fastpow) (a))
+print(get_partapply(n, fastpow) (a)) """
+
+
+
+from functools import partial
+
+
+def fastpow(a, n):
+    if n == 0:
+        return 1
+    elif n % 2 == 0:
+        return fastpow(a * a, n // 2)
+    else:
+        return fastpow(a, n - 1) * a
+
+
+square = partial(fastpow, n = 2)
+cube = partial(fastpow, n = 3)
+a = float(input())
+print(square(a))
+print(cube(a))
