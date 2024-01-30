@@ -10,10 +10,10 @@ def memo(func):
     return res
 
 
+@memo
 def square(num):
     return num * num
 
 
-memsquare = memo(square)
 num = int(input())
-print(memsquare(num))
+print(square(num))
