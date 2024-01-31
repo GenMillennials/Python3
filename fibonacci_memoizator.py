@@ -24,7 +24,7 @@ print(memfibonacci(num)) """
 
 
 
-def memo(func):
+""" def memo(func):
     L = []
     def result(num):
         nonlocal L
@@ -43,6 +43,24 @@ def fibonacci(num):
     else:
         return fibonacci(num - 1) + fibonacci(num - 2)
 
+
+num = int(input())
+print(fibonacci(num)) """
+
+
+
+
+from functools import cache
+
+@cache
+def fibonacci(num):
+    if num == 0:
+        return 0
+    elif num == 1:
+        return 1
+    else:
+        return fibonacci(num - 1) + fibonacci(num - 2)
+    
 
 num = int(input())
 print(fibonacci(num))
