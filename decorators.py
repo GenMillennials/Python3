@@ -1,18 +1,24 @@
+def deco(t):
+    def deconew(f):
+        def say(s):
+            print(t)
+            f(s)
+            print("!")
+        return say
+    return deconew
+
+
+@deco("Hello!")
 def dear(s):
     print("Dear", s)
 
 
+@deco("Goodbye!")
 def muchesteemed(s):
     print("Muchesteemed", s)
 
-def decohello(f):
-    def say_hello(s):
-        print("Hello!")
-        f(s)
-        print("!")
-    return say_hello
 
-
-hello = decohello(muchesteemed)
 name = input("What's your name? ")
-hello(name)
+dear(name)
+print("I'm Python!")
+muchesteemed(name)
