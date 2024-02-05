@@ -10,21 +10,39 @@ class point:
         return self
 
 
+class section:
+    def __init__(self, A=point(), B=point(1,0)):
+        self.A=A
+        self.B=B
+    def input(self):
+        self.A.input()
+        self.B.input()
+        return self
+    def length(self):
+        return(distance(self.A, self.B))
+
+
 class triangle:
     def __init__(self, A=point(), B=point(), C=point()):
         self.A=A
         self.B=B
         self.C=C
+        self.onChange()
     def input(self):
         self.A.input()
         self.B.input()
         self.C.input()
+        self.onChange()
         return self
+    def onChange(self):
+        self.AB=section(self.A, self.B)
+        self.BC=section(self.B, self.C)
+        self.AC=section(self.A, self.C)
     def per(self):
-        return(distance(self.A, self.B) + distance(self.B, self.C)) + distance(self.A, self.C)
+        return(self.AB.length() + self.BC.length() + self.AC.length())
     def square(self):
         p=self.per()/2
-        return((p*(p-distance(self.A, self.B)) * (p-distance(self.B, self.C)) * (p-distance(self.A,self.C))) ** (0.5))
+        return((p*(p-self.AB.length())) * (p-self.BC.length()) * (p-self.AC.length()) ** (0.5))
 
 
 
