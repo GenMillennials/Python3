@@ -19,4 +19,4 @@ sec = sec % sec_per_h
 minutes = sec // sec_per_m
 sec = sec % sec_per_m
 seconds = sec
-print(f"{days} days {hours:02} hours {minutes:02} minutes {seconds:02} seconds")
+print(f"{days} d : {hours:02} h : {minutes:02} m : {seconds:02} s")
