@@ -1,20 +1,17 @@
 n = int(input("Enter the applicants amount: "))
 m = int(input("Enter the college free position: "))
-L = [-1] * m
-cntr = 0
+A = int(input("Maximal score is: "))
+L = [0] * (A + 1)
 print("Scores:")
 for i in range(n):
     a = int(input())
-    for j in range(m):
-        if a >= L[j]:
-            L.insert(j, a)
-            if L[-1] == L[-2]:
-                cntr += 1
-            else:
-                cntr = 0
-            L = L[:-1]
-            break
-if cntr != 0:
-    cntr = cntr + L.count(L[-1])
-print("The amount of the semi-passing grade applicants are: ", cntr)
-   
+    L[a] = L[a] + 1
+s = 0
+for i in range(1, A):
+    s = s + L[-i]
+    if s > m:
+        print("The amount of the semi-passing grade applicants are: ", L[-i])
+        break
+    elif s == m:
+        print("The amount of the semi-passing grade applicants are: ", 0)
+        break   
