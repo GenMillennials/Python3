@@ -17,3 +17,4 @@ for i in range(n):
         t0 = t   # Start of increasing  temperature period
     t1 = t    # Saving temperature in the previous day in the loop
 print(m)
+print(d)
