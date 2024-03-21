@@ -7,3 +7,9 @@ for i in range(1, len(t)):
     else:
         T.append([t[i]])
 print(T)
+m = max(len(p) for p in T)
+print(m)
+T1 = [p for p in T if len(p) == m]
+print(T1)
+d = max([p[-1] - p[0] for p in T1])
+print(d)
