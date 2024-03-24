@@ -1,7 +1,7 @@
 # Search the lenght of the biggest square inside a matrice (two-dimensional list).
 # The square should be filled of nulls only.
 
-def square(M,y=0,x=0,l=-1,L=[]):
+""" def square(M,y=0,x=0,l=-1,L=[]):
     if l==-1:
         l=len(M)
         L=[]
@@ -33,4 +33,27 @@ M=[[0,0,1,0,1],
    [0,0,0,0,0],
    [0,0,1,1,0]]
 
-print(square(M))
+print(square(M)) """
+
+M = [[1, 1, 0, 0, 1],
+     [0, 1, 0, 0, 0],
+     [0, 1, 0, 0, 0],
+     [0, 0, 0, 0, 0],
+     [0, 0, 1, 1, 0]]
+L = list()
+for y in range(len(M)):
+    for x in range(len(M)):
+        for l in range(len(M) - max(y, x) + 1):
+            flag = True
+            for i in range(y, y + 1):
+                for j in range(x, x + 1):
+                    if M[i][j] != 0:
+                        flag = False
+                        break
+                if flag == False:
+                    break
+            if flag == True:
+                L.append(l)
+            else:
+                break
+print(max(L))
