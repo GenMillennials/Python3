@@ -47,10 +47,12 @@ for y in range(len(M)):
             flag = True
             for i in range(y, y + 1):
                 for j in range(x, x + 1):
-                    if M[i][j] != 0:
+                    if M[i][x + l - 1] != 0:
                         flag = False
                         break
-                if flag == False:
+            for j in range(x, x + 1):
+                if M[y + l - 1][j] != 0:
+                    flag = False
                     break
             if flag == True:
                 L.append(l)
