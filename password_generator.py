@@ -11,13 +11,15 @@ lenght = int(input("Enter the lenght of a password: "))
 
 chars = digits + lowercase_letters + uppercase_letters + punctuation
 
-def generate_password(length, chars):
-    L = list(chars)
-    Res = list()
-    for i in range(lenght):
-        i = random.choice(L)
-        Res.append(i)
-        password = "".join(Res)
-    return password
+while amount > 0:
+    def generate_password(length, chars):
+        L = list(chars)
+        Res = list()
+        for i in range(lenght):
+            i = random.choice(L)
+            Res.append(i)
+            password = "".join(Res)
+        return password
+    amount -= 1
 
 print(generate_password(lenght, chars))
