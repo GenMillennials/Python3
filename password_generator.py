@@ -7,19 +7,21 @@ punctuation = "!#$%,.&*+-=?\'<>\/~@^_"
 chars = ""
 
 amount = int(input("Enter the general password amount: "))
-lenght = int(input("Enter the lenght of a password: "))
+length = int(input("Enter the length of a password: "))
 
 chars = digits + lowercase_letters + uppercase_letters + punctuation
 
+def generate_single_password():
+    L = list(chars)
+    password = str()
+    for _ in range(length):
+        symbs = random.choice(L)
+        password += symbs
+    return password
+
+passwords = list()
 while amount > 0:
-    def generate_password(length, chars):
-        L = list(chars)
-        Res = list()
-        for i in range(lenght):
-            i = random.choice(L)
-            Res.append(i)
-            password = "".join(Res)
-        return password
+    passwords.append(generate_single_password())
     amount -= 1
 
-print(generate_password(lenght, chars))
+print(*passwords, sep="\n")
