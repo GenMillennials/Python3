@@ -27,24 +27,11 @@ def get_chars():
     return "".join(L)   # str()
 
 def exclude_similar_chars(get_chars):
-    L = list(get_chars)
+    chars = get_chars
     if similar_exclude == "y" or similar_exclude == "yes":
-        for _ in L:
-            if "i" in L:
-                L.remove("i")
-            if "l" in L:
-                L.remove("l")
-            if "1" in L:
-                L.remove("1")
-            if "0" in L:
-                L.remove("0")
-            if "L" in L:
-                L.remove("L")
-            if "o" in L:
-                L.remove("o")
-            if "O" in L:
-                L.remove("O")
-    return "".join(L)   # str()
+        for char in "il1Lo0O8&":
+            chars = chars.replace(char, "")
+    return chars   # str()
 
 def generate_single_password(exclude_similar_chars):
     L = list(exclude_similar_chars)
