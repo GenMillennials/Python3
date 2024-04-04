@@ -27,9 +27,14 @@ def is_encryption(data, rotate):
     L = list(data)
     for i in L:
         if i.isupper():
-            s = # range(65, 91)
-        else:
-            s = chr(ord(i) + rotate)
+            s = chr((((ord(i) + 65) + rotate) % 26) + 65)
+            L.append(s)
+        elif i.islower():
+            s = chr((((ord(i) + 97) + rotate) % 26) + 97)
+            L.append(s)
+    return "".join(L)
 
 def is_decryption(data, rotate):
     pass
+
+print(is_encryption(data, rotate))
