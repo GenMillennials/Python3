@@ -24,15 +24,19 @@ def pick_lang():
     return lang   # str()
 
 def is_encryption(data, rotate):
-    L = list(data)
-    for i in L:
+    L = list()
+    s = str()
+    for i in data:
         if i.isupper():
-            s = chr((((ord(i) + 65) + rotate) % 26) + 65)
+            s = chr((((ord(i) - 65) + rotate) % 26) + 65)
             L.append(s)
         elif i.islower():
-            s = chr((((ord(i) + 97) + rotate) % 26) + 97)
+            s = chr((((ord(i) - 97) + rotate) % 26) + 97)
             L.append(s)
-    return "".join(L)
+        else:
+            s = i
+            L.append(s)
+    return "".join(L)   # str()
 
 def is_decryption(data, rotate):
     pass
