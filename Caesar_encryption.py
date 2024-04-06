@@ -1,27 +1,32 @@
-print("Welcome to Caesar's encryption and decryption generator!")
-action = input("Would you like to encrypt of decript your data? encr / decr").lower()
-lang = input("Pick the language: eng / rus").lower()
-eng_lang = "abcdefghijklnopqrstuvwxyz"
-rus_lang = "абвгдежзиклмнопрстуфхцчшщъыьэюя"
-rotate = int(input("Pick the rotate index: "))
-print("Enter your text for encryption or decryption:")
-data = input()
+def welcome():
+    print("Welcome to Caesar's encryption and decryption generator!")
 
-def pick_action_lang():
-    global action
-    if action == "encr" or action == "enc" or action == "en" or action == "e":
-        action = is_encryption
-    elif action == "decr" or action == "dec" or action == "de" or action == "d":
-        action = is_decryption
-    return action   # 
+def is_action():
+    action = input("Would you like to encrypt of decript your data? encr / decr ").lower()
+    # if action == "encr" or action == "enc" or action == "en" or action == "e" or action == "encryption":
+    #     is_encryption = action
+    # elif action == "decr" or action == "dec" or action == "de" or action == "d" or action == "decryption":
+    #     is_decryption = action
+    return action
 
 def pick_lang():
-    global eng_lang, rus_lang
+    eng_lang = "abcdefghijklnopqrstuvwxyz"
+    rus_lang = "абвгдежзиклмнопрстуфхцчшщъыьэюя"
+    lang = input("Pick the language: eng / rus ").lower()
     if lang == "eng" or lang == "e" or lang == "en" or lang == "english":
-        eng_lang = lang
+        lang = eng_lang
     if lang == "rus" or lang == "r" or lang == "ru" or lang == "russian":
-        rus_lang = lang
+        lang = rus_lang
     return lang   # str()
+
+def enter_data():
+    print("Enter your text for encryption or decryption:")
+    data = input()
+    return data   # str()
+
+def rotate():
+    shift = int(input("Enter the rotate index: "))
+    return shift   # int()
 
 def is_encryption(data, rotate):
     L = list()
@@ -39,6 +44,14 @@ def is_encryption(data, rotate):
     return "".join(L)   # str()
 
 def is_decryption(data, rotate):
-    pass
+    L = list()
+    s = str()
+    for i in data:
+        if i.isupper():
+            s
 
-print(is_encryption(data, rotate))
+welcome()
+#is_action()
+#pick_lang()
+#enter_data()
+#rotate()
