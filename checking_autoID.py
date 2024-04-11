@@ -1,6 +1,14 @@
 ID = input()
-flag = True
-if len(ID) != 9 and len(ID) != 10:
-    flag = False
+flag = False
 ABC = "АВЕКМНОРСТУХ"
-print("NO" if flag == False else "YES")
+if len(ID) == 9 or len(ID) == 10:
+    lets = ID[0] + ID[4:6]
+    nums = ID[1:4] + ID[7:]
+    sym = ID[6]
+    if nums.isdigit() and sym == "_":
+        flag = True
+    for i in lets:
+        if i not in ABC:
+            flag = False
+            break
+print("YES" if flag == True else "NO")
