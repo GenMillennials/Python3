@@ -48,7 +48,12 @@ def is_decryption(data, rotate):
     s = str()
     for i in data:
         if i.isupper():
-            s
+            s = chr(((ord(i) - rotate)))
+            L.append(s)
+        elif i.islower():
+            s = chr(((ord(i) - rotate)))
+            L.append(s)
+    return "".join(L)
 
 welcome()
 #is_action()
