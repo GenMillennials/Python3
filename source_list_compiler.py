@@ -32,16 +32,18 @@ def get_year():
             print("Год публикации некорректен")  
     return src_year
 
-def get_volume():
-    while True:
-        src_volume = input("Введите том книги или журнала:\nЕсли том отсутствует, введите ноль: ")
-        if src_volume.isdigit() and len(src_volume) <= 2 and src_volume[0] != "0":
-            break
-        elif src_volume == "0":
-            src_volume = ""
-            break
-        else:
-            print("Номер тома издания некорректен")
+def get_volume(flag):
+    src_volume = ""
+    if flag == "0":
+        src_volume = ""
+    else:
+        while True:
+            vol = input("Введите том книги или журнала: ")
+            if src_volume.isdigit() and len(src_volume) <= 2:
+                src_volume = f" Т.{vol}."
+                break
+            else:
+                print("Номер тома издания некорректен")
     return src_volume
 
 def get_src_number():
@@ -66,7 +68,7 @@ print("Давайте начнем описание источника")
 res = ""
 print("Выберите вид источника публикации")
 pick_type_src = input("Если журнал - ж, диссертация - д,\nавтореферат - a, конференция - к, НПА - нпа\n")
-if pick_source(pick_type_src) == "ж" and get_volume != "0":
-    res = get_authors().title() + " " + get_name_src().capitalize() + " // " + get_material().title() + ". " + get_year() + ". " + get_volume() + ". № " + get_src_number() + ". " + "С." + get_src_page() + "."
-elif pick_source(pick_type_src) == "ж" and get_volume == "0":
-    res = get_authors().title() + " " + get_name_src().capitalize() + " // " + get_material().title() + ". " + get_year() + "№ " + get_src_number() + ". " + "С. " + get_src_page() + "."
+f = input("Укажите наличие тома в издании, если томов нет, введите ноль:\n")
+if pick_source(pick_type_src) == "ж":
+    res = get_authors().title() + " " + get_name_src().capitalize() + " // " + get_material().capitalize() + ". " + get_year() + "." + get_volume(f) + " № " + get_src_number() + ". " + "С." + get_src_page() + "."
+print(res) 
