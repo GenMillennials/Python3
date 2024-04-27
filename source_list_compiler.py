@@ -71,4 +71,12 @@ pick_type_src = input("Если журнал - ж, диссертация - д,\
 f = input("Укажите наличие тома в издании, если томов нет, введите ноль:\n")
 if pick_source(pick_type_src) == "ж":
     res = get_authors().title() + " " + get_name_src().capitalize() + " // " + get_material().capitalize() + ". " + get_year() + "." + get_volume(f) + " № " + get_src_number() + ". " + "С." + get_src_page() + "."
-print(res) 
+elif pick_source(pick_type_src) == "д":
+    res = get_authors().title() + " " + get_name_src().capitalize() + ". Дисс. {} наук. " + get_material().capitalize() + ". " + get_year() + "." + get_volume(f) + " № " + get_src_number() + ". " + "С." + get_src_page() + "."
+elif pick_source(pick_type_src) == "а":
+    res = get_authors().title() + " " + get_name_src().capitalize() + ". Дисс. {} наук. " + get_material().capitalize() + ". " + get_year() + "." + get_volume(f) + " № " + get_src_number() + ". " + "С." + get_src_page() + "."
+elif pick_source(pick_type_src) == "к":
+    res = get_authors().title() + " " + get_name_src().capitalize() + ". Дисс. {} наук. " + get_material().capitalize() + ". " + get_year() + "." + get_volume(f) + " № " + get_src_number() + ". " + "С." + get_src_page() + "."
+elif pick_source(pick_type_src) == "нпа":
+    res = get_authors().title() + " " + get_name_src().capitalize() + ". Дисс. {} наук. " + get_material().capitalize() + ". " + get_year() + "." + get_volume(f) + " № " + get_src_number() + ". " + "С." + get_src_page() + "."
+print(res)
