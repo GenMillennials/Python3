@@ -1,3 +1,5 @@
+from copy import copy   # The import of lite copying function
+
 def check_el_amount(L):   # A function declaration with 1 parameter
     f = True              # Flag on True by defalt in "f" variable
     for i in range(1, len(L)):   # The loop initialization to iterate list "L" indices starting the second index
@@ -21,3 +23,6 @@ for L in M:   # The start of loop inside "M" list
                 L1 = copy(L)                 # Copying the "L" list to keep it (in "light" copy)
                 L1[i] = L1[i] - 1            # Decreasing current value on 1
                 L1[j] = L1[j] + 1            # Increasing current value on 1 in the next program step
+                if check_el_amount(L1) and L1 not in M:   # Checking two conditions: from the function and from the list "M"
+                    print(L1)                # Output the "L1" list content
+                    M.append(L1)             # The adding "L1" into the "M" list content
