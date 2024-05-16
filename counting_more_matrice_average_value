@@ -1,0 +1,14 @@
+# Counting the matrice more values than the average in the each row
+n = int(input())   # Enter a matrice deepth through a number
+M = []             # Initiating an empty matrice
+for _ in range(n):   # Iteration every loop as a matrice row
+    row = [int(i) for i in input().split()]   # Input numbers in the each row matrice
+    M.append(row)   # Creating the matrice with enrered values by user
+    
+for i in range(n):   # Iteration in created matrice with its rows
+    counter = 0      # Creating a counter with starting value 0 by default
+    average = sum(M[i]) / n   # Creating a variable which take the average value in the each iterated row above
+    for j in range(n):   # Iteration created matrice with its elements in the row
+        if M[i][j] > average:   # If element more than the average in the row -->
+            counter += 1        # The counter appends 1 to its current value
+    print(counter)              # Output the counter value for each row
